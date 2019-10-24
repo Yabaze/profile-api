@@ -4,8 +4,8 @@
 
 import { get } from '@loopback/rest';
 
-export class HelloController {
-  @get('/hello')
+export class SampleController {
+  @get('/Sample')
   hello(): string {
     var admin = require("firebase-admin");
     var serviceAccount = require("./firebaseService.json");
@@ -16,11 +16,11 @@ export class HelloController {
     });
 
 
-    // var db = admin.database();
-    // var ref = db.ref("restricted_access/secret_document");
-    // ref.once("value", function (snapshot) {
-    //   console.log(snapshot.val());
-    // });
+    var db = admin.database();
+    var ref = db.ref("restricted_access/secret_document");
+    ref.once("value", function (snapshot: any) {
+      console.log(snapshot.val());
+    });
 
 
     return "Mirakle Yabaze"
