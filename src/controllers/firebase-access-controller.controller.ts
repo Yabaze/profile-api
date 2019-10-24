@@ -2,10 +2,9 @@ import {
   Request,
   RestBindings,
   get,
-  ResponseObject,
   param,
 } from '@loopback/rest';
-import {inject} from '@loopback/context';
+import { inject } from '@loopback/context';
 
 export class FirebaseAccessControllerController {
   firebase: any;
@@ -35,10 +34,10 @@ export class FirebaseAccessControllerController {
 
     ref.on(
       'value',
-      function(snapshot: any) {
+      function (snapshot: any) {
         skills = snapshot.val();
       },
-      function(errorObject: any) {
+      function (errorObject: any) {
         console.log('The read failed: ' + errorObject.code);
       },
     );
